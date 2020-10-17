@@ -1,10 +1,10 @@
 #!/usr/bin/env sh
 
-SSH_TOKEN_PATH=${SSH_TOKEN_PATH:-~/.ssh/git_ssh_token}
-GIT_LOCAL_REPO=${1:-${PWD}}
-GIT_TARGET_REPO=${GIT_TARGET_REPO}
-GIT_TARGET_REMOTE=downstream
-GIT_SSH_COMMAND="ssh -i \"${SSH_TOKEN_PATH}\""
+export SSH_TOKEN_PATH=${SSH_TOKEN_PATH:-~/.ssh/git_ssh_token}
+export GIT_LOCAL_REPO=${1:-${PWD}}
+export GIT_TARGET_REPO=${GIT_TARGET_REPO}
+export GIT_TARGET_REMOTE=downstream
+export GIT_SSH_COMMAND="ssh -i \"${SSH_TOKEN_PATH}\""
 
 if [ ! -d "${GIT_LOCAL_REPO}" ]
 then
