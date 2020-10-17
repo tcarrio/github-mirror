@@ -32,11 +32,9 @@ fi
 
 pushd "${GIT_LOCAL_REPO}"
 
-set -x
 git remote add ${GIT_TARGET_REMOTE} ${GIT_TARGET_REPO}
 git push --all --force ${GIT_TARGET_REMOTE}
 
-set +x
 if [ $? -eq 0 ]
 then
   echo "Successfully pushed to mirror"
