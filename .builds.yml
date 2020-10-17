@@ -1,0 +1,27 @@
+image: archlinux
+packages:
+  - git
+sources:
+  - https://git.sr.ht/~tcarrio/git-mirror
+  - https://git.sr.ht/~tcarrio/build-helpers
+environment:
+  PROJECT_DIR: git-mirror
+  HELPERS_DIR: build-helpers
+secrets:
+  - 1228fb70-1962-40d9-b1c8-941e56c6a8a1
+tasks:
+  - mirror-any: |
+      git-mirror/git-mirror.sh $PROJECT_DIR
+
+  - mirror-master-only: |
+      source $HELPERS_DIR/all.sh
+      pushd $PROJECT_DIR
+
+      if ! compare_branch master
+      then
+        echo "Skipping mirror task for non-master branch"
+        exit 0
+      fi
+      popd
+
+      git-mirror/git-mirror.sh $PROJECT_DIR
