@@ -4,7 +4,7 @@ export SSH_TOKEN_PATH=${SSH_TOKEN_PATH:-${HOME}/.ssh/id_rsa}
 export GIT_LOCAL_REPO=${1:-${PWD}}
 export GIT_TARGET_REPO=${GIT_TARGET_REPO}
 export GIT_TARGET_REMOTE=downstream
-export GIT_SSH_COMMAND="ssh -i \"${SSH_TOKEN_PATH}\""
+export GIT_SSH_COMMAND="ssh -o StrictHostKeyChecking=no -i \"${SSH_TOKEN_PATH}\""
 
 if [ ! -d "${GIT_LOCAL_REPO}" ]
 then
