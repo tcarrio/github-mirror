@@ -40,8 +40,10 @@ set +x
 if [ $? -eq 0 ]
 then
   echo "Successfully pushed to mirror"
+  exit 0
 else
   echo "Failed to push to mirror"
+  exit 1
 fi
 
 popd

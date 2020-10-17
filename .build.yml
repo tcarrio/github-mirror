@@ -1,6 +1,4 @@
 image: archlinux
-packages:
-  - git
 sources:
   - https://git.sr.ht/~tcarrio/git-mirror
 environment:
@@ -9,5 +7,4 @@ environment:
 secrets:
   - 4e983fc2-9d24-43eb-9986-1c18feb2e7b8
 tasks:
-  - mirror-all: |
-      git-mirror/git-mirror.sh $PROJECT_DIR
+  - mirror-all: git-mirror/git-mirror.sh $PROJECT_DIR
