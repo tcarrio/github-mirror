@@ -9,7 +9,7 @@ environment:
   HELPERS_DIR: build-helpers
   GIT_TARGET_REPO: git@github.com:tcarrio/github-mirror.git
 secrets:
-  - 1228fb70-1962-40d9-b1c8-941e56c6a8a1
+  - 4e983fc2-9d24-43eb-9986-1c18feb2e7b8
 tasks:
   - mirror-any: |
       git-mirror/git-mirror.sh $PROJECT_DIR

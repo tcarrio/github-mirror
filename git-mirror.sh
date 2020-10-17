@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-export SSH_TOKEN_PATH=${SSH_TOKEN_PATH:-~/.ssh/git_ssh_token}
+export SSH_TOKEN_PATH=${SSH_TOKEN_PATH:-~/.ssh/id_rsa}
 export GIT_LOCAL_REPO=${1:-${PWD}}
 export GIT_TARGET_REPO=${GIT_TARGET_REPO}
 export GIT_TARGET_REMOTE=downstream
