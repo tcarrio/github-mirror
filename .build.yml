@@ -3,26 +3,11 @@ packages:
   - git
 sources:
   - https://git.sr.ht/~tcarrio/git-mirror
-  - https://git.sr.ht/~tcarrio/build-helpers
 environment:
   PROJECT_DIR: git-mirror
-  HELPERS_DIR: build-helpers
   GIT_TARGET_REPO: git@github.com:tcarrio/github-mirror.git
 secrets:
   - 4e983fc2-9d24-43eb-9986-1c18feb2e7b8
 tasks:
-  - mirror-any: |
-      git-mirror/git-mirror.sh $PROJECT_DIR
-
-  - mirror-master-only: |
-      source $HELPERS_DIR/all.sh
-      pushd $PROJECT_DIR
-
-      if ! compare_branch master
-      then
-        echo "Skipping mirror task for non-master branch"
-        exit 0
-      fi
-      popd
-
+  - mirror-all: |
       git-mirror/git-mirror.sh $PROJECT_DIR
